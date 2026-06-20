@@ -1,0 +1,689 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+html {
+    scroll-behavior: smooth;
+    
+}
+
+/* Every section lands below the fixed navbar instead of behind it */
+section,
+#home {
+    scroll-margin-top: 80px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background: linear-gradient(
+        to right,
+        #000000,
+        #020617,
+        #0f172a,
+        #111827,
+        #1e293b
+    );
+}
+
+h1 {
+    color: white;
+    font-family: 'Copperplate Gothic Light';
+    text-align: left;
+    padding: 10px;
+    margin: 0;
+}
+
+h2 {
+    color: white;
+    font-family: 'Copperplate Gothic Light';
+    margin: 0;
+    letter-spacing: 4px;
+}
+
+strong {
+    color: white;
+    display: block;
+    text-align: center;
+    padding-top: 15px;
+    font-size: 24px;
+}
+
+/* =========================================================
+   NAVBAR (single source of truth — was previously duplicated)
+   ========================================================= */
+#h {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height:80px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 30px;
+
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+#nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 24px;
+    font-family: 'Copperplate Gothic Light';
+}
+
+.i {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+#nav a:hover {
+    color: red;
+}
+
+/* Active nav link highlighting */
+#nav a.active {
+    color: #00bcd4;
+}
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+#home {
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 100px;          /* clears the fixed navbar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+}
+
+#home h2 {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#head {
+    font-family: 'Copperplate Gothic Light';
+    font-size: clamp(40px, 12vw, 140px);
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 1.1;
+}
+
+/* Hero entrance animation */
+@keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+#home h2 {
+    opacity: 0;
+    animation: heroFadeUp 1s ease forwards;
+    animation-delay: 0.2s;
+}
+#home h1#head {
+    opacity: 0;
+    animation: heroFadeUp 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+/* =========================================================
+   SHARED PAGE / SECTION LAYOUT
+   ========================================================= */
+.page {
+    min-height: 100vh;
+    width: 100%;
+    padding: 40px 80px;
+}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+#about {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #111827,
+        #312e81,
+        #4c1d95
+    );
+}
+
+.about {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.about p {
+    color: white;
+    text-align: left;
+    font-size: clamp(18px, 3vw, 40px);
+    padding-bottom: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#img{
+    width:350px;
+    height:400px;
+    object-fit:cover;
+    margin-top: 50px;
+    border-radius:5%;
+    padding:3px;
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+
+    animation:float 4s ease-in-out infinite;
+    transition:all 0.4s ease;
+
+    box-shadow:0 0 20px rgba(0,114,255,.3);
+    
+}
+
+#img:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 40px rgba(0,114,255,.7);
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+.resume-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 28px;
+
+    background:linear-gradient(
+        135deg,
+        #00bcd4,
+        #6366f1
+    );
+
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:600;
+
+    border-radius:50px;
+
+    box-shadow:0 5px 15px rgba(0,188,212,0.4);
+
+    transition:all 0.3s ease;
+}
+
+.resume-btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,188,212,0.7);
+}
+/* =========================================================
+   SKILLS
+   ========================================================= */
+#skillpagecolor {
+    background: linear-gradient(
+        135deg,
+        #020617,
+        #0f172a,
+        #0f766e,
+        #06b6d4
+    );
+}
+
+#htm {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+.skill{
+    width:220px;
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    transition:all .3s ease;
+
+    cursor:pointer;
+}
+
+.skill:hover{
+    transform:translateY(-12px) scale(1.05);
+
+    box-shadow:
+    0 15px 30px rgba(0,188,212,.3);
+
+    border-color:#00bcd4;
+}
+
+/* =========================================================
+   PROJECT
+   ========================================================= */
+#project {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #111827,
+        #1f2937,
+        #374151,
+        #6366f1
+    );
+}
+
+.project-container {
+    padding: 60px 80px;
+}
+
+.p-tag {
+    color: #00bcd4;
+    letter-spacing: 4px;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0 0 5px 0;
+}
+
+.p-sub {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    font-style: italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#pid {
+    margin-bottom: 6px;
+}
+
+.project-content-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.project-text {
+    flex: 1 1 420px;
+    min-width: 300px;
+}
+
+.p-desc {
+    color: white;
+    font-size: clamp(16px, 1.6vw, 20px);
+    line-height: 1.7;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0 0 30px 0;
+}
+
+.p-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.chip {
+    color: white;
+    font-size: 14px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(0, 255, 255, 0.35);
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.chip:hover {
+    background: rgba(0, 255, 255, 0.12);
+    transform: translateY(-4px);
+}
+
+.view-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: rgba(0, 188, 212, 0.15);
+    border: 1px solid #00bcd4;
+    transition: gap 0.25s ease, background 0.25s ease;
+}
+
+.view-btn:hover {
+    gap: 14px;
+    background: #00bcd4;
+    color: #0f172a;
+}
+
+.p1-image-wrap {
+    flex: 1 1 380px;
+    min-width: 280px;
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.p1img {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 25px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: block;
+}
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+#contact {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #000000,
+        #071426,
+        #30426a,
+        #00bcd4
+    );
+}
+
+#con {
+    padding: 50px;
+    margin: 0;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    gap: 10px;
+    
+}
+
+.contact-left {
+    color: white;
+    width: 40%;
+    font-size: 30px;
+    padding: 30px 40px 100px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+    transition: 0.2s;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.contact-left:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
+}
+
+.let {
+    color: white;
+    font-size: 40px;
+    font-family: 'Copperplate Gothic Light';
+}
+
+.contact-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+    color: #00bcd4;
+    text-decoration: underline;
+}
+
+#in {
+    text-decoration: none;
+    color: skyblue;
+    font-family: 'Lucida Handwriting';
+}
+
+#cbox {
+    width: 80%;
+    min-height: 450px;
+    margin: auto;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+
+    padding: 40px;
+    transition: 0.3s;
+}
+
+#cbox:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
+}
+
+#cbox input,
+#cbox textarea {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-radius: 12px;
+
+    color: white;
+    font-size: 18px;
+}
+
+#cbox button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #00bcd4;
+    color: white;
+
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================================
+   SCROLL PROGRESS BAR
+   ========================================================= */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(to right, #00bcd4, #6366f1);
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* =========================================================
+   SCROLL-REVEAL SECTIONS
+   ========================================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   MOBILE NAV TOGGLE (hamburger)
+   ========================================================= */
+#hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 32px;
+    color: white;
+    padding: 20px 10px;
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+/* ---- Tablet ---- */
+@media (max-width: 1024px) {
+    .page {
+        padding: 40px 40px;
+    }
+    .project-container {
+        padding: 50px 40px;
+    }
+    .contact-container {
+        padding: 40px 50px;
+    }
+    #cbox {
+        width: 80%;
+    }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+    .page {
+        padding: 30px 20px;
+    }
+    .project-container {
+        padding: 40px 24px;
+    }
+
+    #hamburger {
+        display: block;
+    }
+
+    #nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: rgba(15, 23, 42, 0.97);
+        border-radius: 12px;
+        padding: 10px 20px;
+        text-align: left;
+        z-index: 999;
+        gap: 10px;
+    }
+    #nav.open {
+        display: flex;
+    }
+
+    /* Hero subtitle sizing on small screens */
+    #home h2 {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    /* About: stack image above text */
+    .about {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .about p {
+        text-align: center;
+    }
+    #about {
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 60px;
+    }
+
+    /* Skills: tighter spacing */
+    #htm {
+        padding: 25px 10px;
+        gap: 24px;
+    }
+
+    /* Contact: stack info + form */
+    .contact-container {
+        flex-wrap: wrap;
+        padding: 30px 20px;
+    }
+    .contact-left,
+    #cbox {
+        width: 100%;
+    }
+    .contact-left {
+        font-size: 20px;
+        padding: 25px 20px 40px;
+    }
+    #cbox {
+        min-height: auto;
+    }
+}
+
+/* ---- Small phones ---- */
+@media (max-width: 420px) {
+    #head {
+        font-size: clamp(32px, 16vw, 56px);
+    }
+    .page,
+    .project-container {
+        padding: 24px 16px;
+    }
+    h1 {
+        padding: 10px 0;
+    }
+}
