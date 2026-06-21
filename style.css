@@ -459,6 +459,30 @@ strong {
     box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
 }
 
+/* Phone / email / LinkedIn lines inside .contact-left */
+.contact-left p {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin: 28px 0 0 0;
+    line-height: 1.5;
+    font-size: clamp(18px, 2.2vw, 26px);
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.contact-left p.let {
+    margin-top: 0;
+}
+
+/* Icon stays fixed-width so the text column lines up neatly,
+   even when the email wraps to a second line */
+.contact-left p .icon {
+    flex-shrink: 0;
+    width: 28px;
+    text-align: center;
+}
+
 .let {
     color: white;
     font-size: 40px;
