@@ -3,7 +3,6 @@
    ========================================================= */
 html {
     scroll-behavior: smooth;
-    
 }
 
 /* Every section lands below the fixed navbar instead of behind it */
@@ -27,6 +26,10 @@ body {
         #111827,
         #1e293b
     );
+}
+
+img {
+    max-width: 100%;
 }
 
 h1 {
@@ -61,7 +64,7 @@ strong {
     left: 0;
     width: 100%;
     z-index: 1000;
-    height:80px;
+    height: 80px;
 
     display: flex;
     justify-content: space-between;
@@ -77,7 +80,7 @@ strong {
     display: flex;
     align-items: center;
     gap: 25px;
-    font-size: 24px;
+    font-size: 20px;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -85,6 +88,7 @@ strong {
     text-decoration: none;
     color: white;
     padding: 10px;
+    white-space: nowrap;
 }
 
 #nav a:hover {
@@ -115,6 +119,7 @@ strong {
     margin: 0;
     width: 100%;
     text-align: center;
+    font-size: clamp(14px, 2.4vw, 22px);
 }
 
 #head {
@@ -171,7 +176,7 @@ strong {
 .about {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: 40px;
 }
 
 .about p {
@@ -182,66 +187,59 @@ strong {
     font-family: 'Poppins', sans-serif;
 }
 
-#img{
-    width:350px;
-    height:400px;
-    object-fit:cover;
+#img {
+    width: 350px;
+    height: 400px;
+    max-width: 100%;
+    object-fit: cover;
     margin-top: 50px;
-    border-radius:5%;
-    padding:3px;
-    background:linear-gradient(135deg,#00c6ff,#0072ff);
+    border-radius: 5%;
+    padding: 3px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    flex-shrink: 0;
 
-    animation:float 4s ease-in-out infinite;
-    transition:all 0.4s ease;
+    animation: float 4s ease-in-out infinite;
+    transition: all 0.4s ease;
 
-    box-shadow:0 0 20px rgba(0,114,255,.3);
-    
+    box-shadow: 0 0 20px rgba(0, 114, 255, .3);
 }
 
-#img:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 40px rgba(0,114,255,.7);
+#img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 40px rgba(0, 114, 255, .7);
 }
 
-@keyframes float{
-    0%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-10px);
-    }
-    100%{
-        transform:translateY(0);
-    }
+@keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
 }
-.resume-btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:14px 28px;
 
-    background:linear-gradient(
-        135deg,
-        #00bcd4,
-        #6366f1
-    );
+.resume-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 28px;
 
-    color:white;
-    text-decoration:none;
-    font-size:18px;
-    font-weight:600;
+    background: linear-gradient(135deg, #00bcd4, #6366f1);
+
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
     font-family: 'Poppins', sans-serif;
 
-    border-radius:50px;
+    border-radius: 50px;
 
-    box-shadow:0 5px 15px rgba(0,188,212,0.4);
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
 
-    transition:all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.resume-btn:hover{
-    transform:translateY(-5px);
-    box-shadow:0 10px 25px rgba(0,188,212,0.7);
+.resume-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 188, 212, 0.7);
 }
+
 /* =========================================================
    SKILLS
    ========================================================= */
@@ -264,32 +262,35 @@ strong {
     flex-wrap: wrap;
 }
 
-.skill{
-    width:220px;
-    padding:25px;
+.skill {
+    width: 220px;
+    padding: 25px;
 
-    text-align:center;
+    text-align: center;
     font-family: 'Poppins', sans-serif;
 
-    border-radius:20px;
+    border-radius: 20px;
 
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(10px);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
 
-    border:1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 
-    transition:all .3s ease;
+    transition: all .3s ease;
 
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.skill:hover{
-    transform:translateY(-12px) scale(1.05);
+.skill img {
+    height: auto;
+    width: 100%;
+    max-width: 170px;
+}
 
-    box-shadow:
-    0 15px 30px rgba(0,188,212,.3);
-
-    border-color:#00bcd4;
+.skill:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 188, 212, .3);
+    border-color: #00bcd4;
 }
 
 /* =========================================================
@@ -435,10 +436,9 @@ strong {
 .contact-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 10px 10px;
-    gap: 10px;
-    
+    gap: 40px;
 }
 
 .contact-left {
@@ -510,8 +510,9 @@ strong {
 
 #cbox {
     width: 80%;
+    max-width: 560px;
     min-height: 450px;
-    margin: auto;
+    margin: 0;
 
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(10px);
@@ -541,7 +542,7 @@ strong {
     border-radius: 12px;
 
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -560,6 +561,7 @@ strong {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     cursor: pointer;
+    min-height: 48px;
 }
 
 /* =========================================================
@@ -608,15 +610,19 @@ footer {
     display: none;
     cursor: pointer;
     font-size: 32px;
+    line-height: 1;
     color: white;
-    padding: 20px 10px;
+    padding: 12px 10px;
 }
 
 /* =========================================================
    RESPONSIVE BREAKPOINTS
+   (mobile-first overrides layered on top of the desktop
+   defaults above — phone first, then tablet, then a
+   dedicated "large desktop / Mac" tier at the bottom)
    ========================================================= */
 
-/* ---- Tablet ---- */
+/* ---- Tablet (iPad portrait, small laptops) ---- */
 @media (max-width: 1024px) {
     .page {
         padding: 40px 40px;
@@ -626,13 +632,30 @@ footer {
     }
     .contact-container {
         padding: 40px 50px;
+        gap: 30px;
+    }
+    .contact-left {
+        font-size: 24px;
+        padding: 25px 30px 60px;
     }
     #cbox {
-        width: 80%;
+        width: 90%;
+    }
+    #htm {
+        gap: 40px;
+        padding: 40px 20px;
+    }
+    .skill {
+        width: 180px;
+        padding: 20px;
+    }
+    #nav {
+        font-size: 17px;
+        gap: 16px;
     }
 }
 
-/* ---- Mobile ---- */
+/* ---- Mobile (phones, incl. landscape) ---- */
 @media (max-width: 768px) {
     .page {
         padding: 30px 20px;
@@ -657,15 +680,21 @@ footer {
         text-align: left;
         z-index: 999;
         gap: 10px;
+        font-size: 18px;
     }
     #nav.open {
         display: flex;
     }
+    #nav a {
+        padding: 12px 10px;
+        width: 100%;
+    }
 
     /* Hero subtitle sizing on small screens */
     #home h2 {
-        font-size: 18px;
+        font-size: 16px;
         margin-top: 10px;
+        letter-spacing: 2px;
     }
 
     /* About: stack image above text */
@@ -673,6 +702,7 @@ footer {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 10px;
     }
     .about p {
         text-align: center;
@@ -682,21 +712,51 @@ footer {
         min-height: 100vh;
         padding-bottom: 60px;
     }
+    #img {
+        width: min(280px, 80vw);
+        height: auto;
+        aspect-ratio: 350 / 400;
+        margin-top: 20px;
+    }
 
-    /* Skills: tighter spacing */
+    /* Skills: tighter spacing, smaller cards */
     #htm {
         padding: 25px 10px;
-        gap: 24px;
+        gap: 20px;
+    }
+    .skill {
+        width: 45%;
+        min-width: 140px;
+        padding: 18px;
+    }
+    .skill img {
+        max-width: 100px;
+    }
+    strong {
+        font-size: 18px;
+    }
+
+    /* Project: tighten chip + button sizing */
+    .p-desc {
+        margin-bottom: 22px;
+    }
+    .view-btn {
+        font-size: 16px;
+        padding: 12px 22px;
+        width: 100%;
+        justify-content: center;
     }
 
     /* Contact: stack info + form */
     .contact-container {
         flex-wrap: wrap;
         padding: 30px 20px;
+        gap: 24px;
     }
     .contact-left,
     #cbox {
         width: 100%;
+        max-width: 100%;
     }
     .contact-left {
         font-size: 20px;
@@ -704,6 +764,7 @@ footer {
     }
     #cbox {
         min-height: auto;
+        padding: 28px;
     }
 }
 
@@ -718,5 +779,63 @@ footer {
     }
     h1 {
         padding: 10px 0;
+    }
+    .skill {
+        width: 100%;
+    }
+    #cbox {
+        padding: 20px;
+    }
+}
+
+/* =========================================================
+   LARGE DESKTOP / MAC TIER
+   Keeps content from stretching edge-to-edge or growing
+   uncomfortably wide on big screens (MacBook/iMac/external
+   monitor territory). Centers a max-width content column
+   instead of letting flex items spread across 1440px+.
+   ========================================================= */
+@media (min-width: 1440px) {
+    .page,
+    .project-container {
+        max-width: 1320px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #home {
+        max-width: 1320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-container {
+        max-width: 1320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #img {
+        width: 380px;
+        height: 430px;
+    }
+
+    .p1img {
+        max-width: 520px;
+    }
+
+    #cbox {
+        max-width: 600px;
+    }
+}
+
+@media (min-width: 1800px) {
+    .page,
+    .project-container,
+    #home,
+    .contact-container {
+        max-width: 1500px;
     }
 }
