@@ -124,15 +124,11 @@ if (contactForm) {
 
 // =========================================================
 // Tilt-on-hover effect for project image
-// Skipped on touch devices since there's no real mouse to
-// drive the tilt — prevents a "stuck" rotated state on
-// phones/tablets after a tap.
 // =========================================================
 const p1Wrap = document.getElementById('p1ImgWrap');
 const p1Img = document.getElementById('p1img');
-const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-if (p1Wrap && p1Img && supportsHover) {
+if (p1Wrap && p1Img) {
     p1Wrap.addEventListener('mousemove', (e) => {
         const rect = p1Wrap.getBoundingClientRect();
         const x = e.clientX - rect.left;
