@@ -177,7 +177,7 @@ strong {
 .about p {
     color: white;
     text-align: left;
-    font-size: clamp(18px, 3vw, 40px);
+    font-size: clamp(14px, 2vw, 30px);
     padding-bottom: 0;
     font-family: 'Poppins', sans-serif;
 }
